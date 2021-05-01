@@ -11,9 +11,9 @@
       body {
         font-family: monospace;
       }
-	    li {
-	      padding: 0.3em;
-	    }
+	  li {
+	    padding: 0.3em;
+	  }
      </style>
   </head>
   <body>
@@ -37,35 +37,15 @@
   </li>
   
   <li>Create a Hyper-V internal switch using the virtual switch manager:</li>
-  <div class="d-flex flex-justify-center">
-    <div class="img-container w-50 p-2">
-      <img src="/img/switch-mgr.PNG">
-    </div>
-  </div>
-  <br>
-  <div class="d-flex flex-justify-center">
-    <div class="img-container w-50 p-2">
-      <img src="/img/switch-int.PNG">
-    </div>
-  </div>
-  <br>
-  <li>Assign VM's network adapter to the Hyper-V internal switch from the Hyper-V management console.</li>
-  <div class="d-flex flex-justify-center">
-    <div class="img-container w-50 p-2">
-      <img src="/img/if-assign.PNG">
-    </div>
-  </div>
-  <br>
 
-  <li>Change the IP address range of the internal switch to say 10.0.0.1 with subnet mask of 255.255.255.0</li>
-  <div class="d-flex flex-justify-center">
-    <div class="img-container w-50 p-2">
-      <img src="/img/ncpa.gif">
-    </div>
-  </div>
-  <br>
+  <li>
+    The internal switch would show up as an adapter under Hyper-V host's netowrk connections (ncpa.cpl)
+    <ul><li>Change the IP address range of the internal switch to say 10.0.0.1 with subnet mask of 255.255.255.0</li></ul>
+  </li>
 
-  <li>Boot the VM and assign is network interface a static IP address which matches the CIDR range of the internal switch. ex:</li>
+  <li>Associate the VM's nic with the internal switch. This can be done via VM's property page</li>
+
+  <li>Boot the VM and assign is network interface a static IP which matches the CIDR range of the internal switch. ex:</li>
   <div class="d-flex flex-justify-center">
     <div class="remark dark w-75">
         #iface eth0 inet dhcp <br>
