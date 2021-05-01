@@ -23,14 +23,15 @@
         <div class="cell-8">
           <div>
 
-<h5 class="text-center">Enable client side Hyper-V on Windows 10 Home</h5>
+<h5 class="text-center">Enable client side Hyper-V on Windows 10</h5>
+<br>
 
 <ul>
-
   <li>
-    Windows 10 Pro comes with client side Hyper-V support.
+    Windows 10 Pro supports client side Hyper-V.
 	  <ul>
-	    <li>Enable client side Hyper-V from "Add-Remove Programs" --> "Turn Windows Features on or off". Check this :</li>
+	    <li>Enable client side Hyper-V from "Add-Remove Programs" --> "Turn Windows Features on or off". Check the "Hyper-V" option as shown below</li>
+      <li>Only this step is needed to enable Hyper-V on Windows 10 Pro</li>
     </ul>
   </li>
   <div class="d-flex flex-justify-center">
@@ -39,8 +40,11 @@
   <br>
   
   <li>
-    Windows10 Home by default does not support client side Hyper-V. Use the below script to enable Hyper-V on Windows Home. 
-    <ul><li>This is only required on Windows 10 Home Edition.</li></ul>
+    Windows10 Home by default does not support client side Hyper-V. 
+    <ul>
+      <li>Use the below script to enable Hyper-V on Windows Home.</li>
+      <li>This is only required on Windows 10 Home Edition.</li>
+    </ul>
   </li>
   <div class="d-flex flex-justify-center">
     <div class="remark w-75">
@@ -61,9 +65,8 @@
   </div>
   <br>
   
-  <li>
-    You should see something like this (without any VMs listed)
-  </li>
+  <li>You should see something like this (without any VMs listed)</li>
+  <li>As you can see, I have Hyper-V enabled on my Windows 10 Home machine</li>
   <div class="d-flex flex-justify-center">
     <div class="img-container w-50"><img src="/img/hyperv-console.png"></div>
   </div>

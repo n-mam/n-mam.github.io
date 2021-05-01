@@ -23,52 +23,12 @@
         <div class="cell-8">
           <div>
 
-<h5 class="text-center">Setup 2 node Kubernetes cluster on Windows</h5>
-In this article we'd set up a 2 node kubernetes cluster on Windows using Hyper-V. 
-<ul>
+<h5 class="text-center">Setup 2-node Kubernetes cluster on Windows</h5>
+<br>
 
-  <li>
-    Windows 10 Pro comes with client side Hyper-V support.
-	<ul>
-	  <li>Enable client side Hyper-V from "Add-Remove Programs" --> "Turn Windows Features on or off". Check this :</li>
-    </ul>
-  </li>
-  <div class="d-flex flex-justify-center">
-    <div class="img-container w-50"><img src="/img/hyper-v.PNG"></div>
-  </div>
-  <br>
-  
-  <li>
-    Windows10 Home by default does not support client side Hyper-V. Use the below script to enable Hyper-V on Windows Home. 
-    This is only required on Windows 10 Home Edition.
-  </li>
-  <div class="d-flex flex-justify-center">
-    <div class="remark w-75">
-      pushd "%~dp0" <br>
-      dir /b %SystemRoot%\servicing\Packages\*Hyper-V*.mum >hyper-v.txt <br>
-      for /f %%i in ('findstr /i . hyper-v.txt 2^>nul') do dism /online /norestart /add-package:"%SystemRoot%\servicing\Packages\%%i" <br>
-      del hyper-v.txt <br>
-      Dism /online /enable-feature /featurename:Microsoft-Hyper-V-All /LimitAccess /ALL <br>
-    </div>
-  </div>
-  <br>
-  
-  <li>
-    Launch Hyper-V management console using virtmgmt from an admin command prompt.
-  </li>
-  <div class="d-flex flex-justify-center">
-    <div class="img-container w-50"><img src="/img/virtmgmt.PNG"></div>
-  </div>
-  <br>
-  
-  <li>
-    You should see something like this (without any VMs listed)
-  </li>
-  <div class="d-flex flex-justify-center">
-    <div class="img-container w-50"><img src="/img/hyperv-console.png"></div>
-  </div>
-  <br>
-  
+In this article we'd set up a 2-node kubernetes cluster on Windows, using Hyper-V. 
+<ul>
+ <li>Please use <a href="/doc/windows10_home_hyper-v.html">these steps</a> to enable Hyper-V on you Windows 10 machine</li>
 </ul>
 
 
