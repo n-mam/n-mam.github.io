@@ -49,7 +49,7 @@
     </ul>
   </li>
   <div class="d-flex flex-justify-center">
-    <div class="remark w-75">
+    <div class="remark dark w-75">
       pushd "%~dp0" <br>
       dir /b %SystemRoot%\servicing\Packages\*Hyper-V*.mum >hyper-v.txt <br>
       for /f %%i in ('findstr /i . hyper-v.txt 2^>nul') do dism /online /norestart /add-package:"%SystemRoot%\servicing\Packages\%%i" <br>

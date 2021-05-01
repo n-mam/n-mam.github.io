@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <title>Hyper-V Internal Switch</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Metro 4 -->
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+    <style>
+      body {
+        font-family: monospace;
+      }
+	    li {
+	      padding: 0.3em;
+	    }
+     </style>
+  </head>
+  <body>
+
+    <div class="grid p-5">
+      <div class="row">
+        <div class="cell-2"><div> </div></div>
+        <div class="cell-8">
+          <div>
+            
+<h5 class="text-center">Hyper-V Internal Switch</h5>
+<br>
+
+<ul>
+  <li>
+    Hyper-V internal switch allows communication across:
+    <ul>
+        <li>VMs on the same internal switch and</li>
+        <li>Between host and the VMs (on the same internal switch)</li>
+    </ul>
+  </li>
+  
+  <li>Create a Hyper-V internal switch using the virtual switch manager:</li>
+  <div class="d-flex flex-justify-center">
+    <div class="img-container w-50 p-2">
+      <img src="/img/switch-mgr.PNG">
+    </div>
+  </div>
+  <br>
+  <div class="d-flex flex-justify-center">
+    <div class="img-container w-50 p-2">
+      <img src="/img/switch-int.PNG">
+    </div>
+  </div>
+  <br>
+  <li>Assign VM's network adapter to the Hyper-V internal switch from the Hyper-V management console.</li>
+  <div class="d-flex flex-justify-center">
+    <div class="img-container w-50 p-2">
+      <img src="/img/if-assign.PNG">
+    </div>
+  </div>
+  <br>
+
+  <li>Change the IP address range of the internal switch to say 10.0.0.1 with subnet mask of 255.255.255.0</li>
+  <div class="d-flex flex-justify-center">
+    <div class="img-container w-50 p-2">
+      <img src="/img/ncpa.gif">
+    </div>
+  </div>
+  <br>
+
+  <li>Boot the VM and assign is network interface a static IP address which matches the CIDR range of the internal switch. ex:</li>
+  <div class="d-flex flex-justify-center">
+    <div class="remark dark w-75">
+        #iface eth0 inet dhcp <br>
+        iface eth0 inet static <br>
+          address 10.0.0.2 <br>
+          netmask 255.255.255.0 <br>
+          gateway 10.0.0.1 <br>
+    </div>
+  </div>
+
+  <li>Allow Hyper-V host to recieve ICMP from the VMs. From powershell:</li>
+  <div class="d-flex flex-justify-center">
+    <div class="remark dark w-75">
+        Set-NetFirewallRule -Name "FPS-ICMP4-ERQ-In" -Enabled True <br>
+    </div>
+  </div>
+  <br>
+
+  <li>Verify ping works both ways i.e. host-to-vm and vm-to-host.</li>
+  <li>If there are multiple VMs on the same subnet, ping should work from vm-tovm as well.</li>
+
+</ul>
+
+
+
+
+
+
+Few other settings (need to verify)
+On the hyper-v network adaptor settings:
+  Advanced features -- MAC address -- select "static"
+  VLAN is can remain unchecked.
+
+          </div>
+        </div>
+        <div class="cell-2"><div> </div></div>
+      </div>
+    </div>
+
+    <!-- Metro 4 -->
+    <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+  </body>
+</html>
