@@ -45,7 +45,7 @@
 
   <li>Associate the VM's nic with the internal switch. This can be done via VM's property page</li>
 
-  <li>Boot the VM and assign is network interface a static IP which matches the CIDR range of the internal switch. ex:</li>
+  <li>Boot the VM and assign its network interface a static IP which matches the CIDR range of the internal switch allocated above. ex:</li>
   <div class="d-flex flex-justify-center">
     <div class="remark dark w-75">
         #iface eth0 inet dhcp <br>
@@ -55,6 +55,8 @@
           gateway 10.0.0.1 <br>
     </div>
   </div>
+
+  <li>At this point, Hyper-V internal switch has an IP address of 10.0.0.1 and the VM has a static IP address of 10.0.0.2</li>
 
   <li>Allow Hyper-V host to recieve ICMP from the VMs. From powershell:</li>
   <div class="d-flex flex-justify-center">
